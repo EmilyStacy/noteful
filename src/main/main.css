@@ -1,0 +1,16 @@
+.Main{
+    text-align:center;
+    display:flex;
+
+}
+
+.left {
+    width:30%;
+    margin-left:auto;
+    border-right:1px solid grey;
+}
+
+.right{
+
+    width:70%;
+}

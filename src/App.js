@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Component} from 'react';
+import {BrowseRouter,Route} from 'react-router-dom';
+//React,{Component} = React.Component 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import Main from './main/main';
+// import Dynamicf from './dynamic_folder/dynamicf':look up folders; change the state of folders with adding notes
+
+// import Note from './dynamic_folder/dynamic_note/dynamicn';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+        folders :[],
+        notes:[]
+    };
+  }
+  render(){
+    return (
+      <BrowseRouter>
+        <div className="App">
+          <Route path ='/' component={Main}/>
+          <Route path='/folder/:folderId' component={Dynamicf}/>
+        <Route path='/note/:noteId' component={Note} /> */}
+      </div>
+      </BrowseRouter>
+    );
+  }
 }
 
 export default App;
