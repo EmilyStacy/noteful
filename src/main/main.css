@@ -1,16 +1,15 @@
-.Main{
-    text-align:center;
-    display:flex;
 
-}
 
 .left {
-    width:30%;
-    margin-left:auto;
-    border-right:1px solid grey;
+    display:inline-block;
+    margin:30px;
 }
 
 .right{
+    display:inline-block;
+    margin:30px;
+}
 
-    width:70%;
+.add_note{
+    margin:30px;    
 }

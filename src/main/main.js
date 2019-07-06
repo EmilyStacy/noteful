@@ -12,14 +12,15 @@ class Main extends Component {
     render(){
         console.log(Store.notes);
         return(
-            <div className="main">
-            <Header/>
-            <section className="right"></section>
-                <Notes stores={Store.notes}/>
-            <section className="left">
-                <Folders />
+             
+             <>
+             <section className="left">
+                <Folders stores={Store.folders} />
             </section>
-            </div>
+            <section className="right">
+                <Notes stores={Store.notes}/>
+            </section>
+            </>
             )
            
         }

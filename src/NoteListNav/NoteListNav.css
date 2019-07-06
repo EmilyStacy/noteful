@@ -1,0 +1,32 @@
+.NoteListNav{
+    display:flex;
+    justify-content: space-between;
+}
+
+.left{
+    width:80%;
+    border: solid 1px #000;
+
+}
+
+.right{
+    width:20%;
+    border: solid 1px #000;
+    display:inline-block;
+}
+
+.note{
+    border:1px solid grey;
+    margin:30px;
+    padding:15px;
+}
+
+.add_note{
+    margin:15px;
+
+}
+
+.button{
+    margin:30px;
+    padding:15px;
+}
