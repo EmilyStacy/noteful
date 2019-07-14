@@ -1,16 +1,15 @@
 import React,{Component} from 'react';
-import {Route} from 'react-router-dom';
 import Folder from './Folder';
-import Store from '../dummy_store';
+import NotefulContext from '../notefulContext';
 //display the data
 //
 class Folders extends Component {
+    static contextType = NotefulContext;
     render(){
-        
-        const folderList = this.props.stores.map(folder =>{
-            const selectedFolder = this.props.folderId === folder.id;
+        const folderList = this.context.folders.map(folder =>{
+            const selectedFolder = this.context.folders.folderId === folder.id;
             return(
-            <Folder selectedFolder={selectedFolder} folder = {folder}/>
+            <Folder key={folder.id} selectedFolder={selectedFolder} folder = {folder}/>
             )
         })
         return(

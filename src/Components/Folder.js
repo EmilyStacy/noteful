@@ -3,7 +3,6 @@ import  {Link} from 'react-router-dom';
 import "./Folder.css";
 
 export default function Folder(props){
-    console.log(props.selectedFolder);
     return (
     <div className ={`folder ${props.folder.id}`}>
         <Link to={`/folder/${props.folder.id}`}>

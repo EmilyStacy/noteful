@@ -1,21 +1,17 @@
 import React,{Component} from 'react';
-import {Route} from 'react-router-dom';
 import Note from '../Components/Note';
-import Store from '../dummy_store';
-
-//Note ='' Link to 'path/note.id'
-//set a router to note
+import NotefulContext from '../notefulContext';
 
 
 class Notes extends Component {
+    static contextType = NotefulContext;
     render(){
-        const store= Store.notes;
+        const store= this.context.notes;
         const noteList = store.map(note=>{
             return(
-                <Note note={note}/>
+                <Note key={note.id} note={note}/>
                  )
         });
-        console.log(noteList);
         return (
         <>
             <div className="Notes">

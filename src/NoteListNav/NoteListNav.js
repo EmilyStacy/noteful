@@ -1,20 +1,20 @@
-//
-// have notes component here
-//get the logic
+//how to use consumer in map
 import React,{Component} from 'react';
 import Folders from '../Components/Folders';
-import Notes from '../Components/Notes';
-import Store from '../dummy_store';
+// import Store from '../dummy_store';
+import NotefulContext from '../notefulContext';
 import {Link} from 'react-router-dom';
 
+
+
 export default class NoteListNav extends Component {
-        
+    static contextType = NotefulContext;
     render(){
         console.log(this.props);
         const folderId = this.props.match.params.folderId;
-        const filterNotes = Store.notes.filter(note => 
-            note.folderId ===folderId);
-        const finalNotes= filterNotes.map(note=> {
+        const filterNotes = this.context.notes.length?this.state.notes.filter(note => 
+            note.folderId ===folderId):"";
+        const finalNotes= this.context.notes.length?filterNotes.map(note=> {
             return(
             <div className="note">
                 <Link to={`/note/${note.id}`}>
@@ -25,11 +25,11 @@ export default class NoteListNav extends Component {
                 </button>
             </div>
             )
-        })
+        }): "";
         return(
             <>
                 <section className="left">
-                    <Folders folderId={folderId} stores={Store.folders}/>
+                    <Folders folderId={folderId} stores={this.context.folders}/>
                 </section>
                 <section className="right">
                     <div className="note">
