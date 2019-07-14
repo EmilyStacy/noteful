@@ -39,13 +39,16 @@ export default class NoteListMain extends Component {
             return(
                 <NotefulContext.Consumer>
                 {(context)=> (
-                <>
+                <div className="notelistMain" key="note.id">
                 <h2>{note.name}</h2>
                 <p>{note.modified}</p>
                 <p>{note.folderId}</p>
-                {/* <button onClick={deleteNote(note.id,context.deleteNote)}>delete</button> */}
+                 <button className="delete" onClick={()=>{context.deleteNote(note.id)}}>
+                Delete note
+
+                </button> 
                 <p>{note.content} </p>
-                </>
+                </div>
                 )
             }
                </NotefulContext.Consumer>

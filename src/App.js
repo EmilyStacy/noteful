@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 // import '@fortawesome/fontawesome-free-webfonts/fontawesome.css'
 //React,{Component} = React.Component 
 import './App.css';
@@ -9,10 +9,6 @@ import NoteListMain from './NoteListMain/NoteListMain';
 import Header from '../src/Components/Header';
 import config from './config';
 import NotefulContext from './notefulContext';
-
-
-
-
 
 class App extends Component {
   constructor(props) {
@@ -32,13 +28,38 @@ class App extends Component {
 
    
 
-  deleteNote = noteId => {
-    const newNotes = this.state.notes.filter(note => note.id !== noteId);
-    this.setState({
-        notes: newNotes
-    });
-};
+  deleteNote = noteid => {
+    fetch(config.API_Note_ENDPOINT + `/${noteid}`, {
+      method: 'DELETE',
+      headers: {
+        'authorization': `bearer ${config.API_KEY}`
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          
+          return res.json().then(error => {
+            
+            throw error
+          })
+        }
+        return res.json()
+      })
+      .then(data => {
+        this.updateDeletedNotes(noteid)
+        this.props.history.push('/');
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  };
 
+  updateDeletedNotes  = noteid => {
+    const newNotes = this.state.notes.filter(note => note.id !== noteid);
+    this.setState({
+        notes: newNotes,
+    });
+  }
 
   setNotes= notes => {
     this.setState({
@@ -64,6 +85,7 @@ class App extends Component {
   }
   
   render(){
+    console.log(this.props.history);
     const contextValue = {
       folders:this.state.folders,
       notes:this.state.notes,
@@ -87,4 +109,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

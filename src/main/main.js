@@ -8,6 +8,7 @@ import Folders from '../Components/Folders';
 class Main extends Component {
     static contextType = NotefulContext;
     render(){
+        console.log('main loaded');
         
         return(
              
