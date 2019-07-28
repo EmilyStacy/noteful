@@ -3,32 +3,7 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import './NoteListMain.css';
 import NotefulContext from '../notefulContext';
-import config from '../config';
 
-// function deleteNote(noteid, callback) {
-//     fetch(config.API_Note_ENDPOINT + `/${noteid}`, {
-//       method: 'DELETE',
-//       headers: {
-//         'authorization': `bearer ${config.API_KEY}`
-//       }
-//     })
-//       .then(res => {
-//         if (!res.ok) {
-          
-//           return res.json().then(error => {
-            
-//             throw error
-//           })
-//         }
-//         return res.json()
-//       })
-//       .then(data => {
-//         callback(noteid)
-//       })
-//       .catch(error => {
-//         console.error(error)
-//       })
-//   }
 export default class NoteListMain extends Component {
     static contextType = NotefulContext;
     render(){
@@ -57,7 +32,7 @@ export default class NoteListMain extends Component {
         
         )
         
-        console.log(noteItem);
+        console.log(noteItem[0]);
         const currentNoteFolder = noteItem.length?noteItem[0].folderId:"";
          const folderItem = this.context.folders.filter (folder =>
             folder.id === currentNoteFolder);

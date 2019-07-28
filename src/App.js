@@ -3,12 +3,14 @@ import {Route, withRouter} from 'react-router-dom';
 // import '@fortawesome/fontawesome-free-webfonts/fontawesome.css'
 //React,{Component} = React.Component 
 import './App.css';
-import Main from './main/main';//notePageMain
+import Main from './main/main';
 import NoteListNav from './NoteListNav/NoteListNav';
 import NoteListMain from './NoteListMain/NoteListMain';
-import Header from '../src/Components/Header';
 import config from './config';
 import NotefulContext from './notefulContext';
+import Addfolder from './Addfolder';
+import Addnote from './Addnote';
+
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +19,8 @@ class App extends Component {
         folders :[],
         notes:[]
     };
+    this.addFolder=this.addFolder.bind(this);
+    this.addNote=this.addNote.bind(this);
   }
 
   setFolders = folders =>{
@@ -64,7 +68,7 @@ class App extends Component {
   setNotes= notes => {
     this.setState({
       notes,
-      errors:null,
+      errors:null
       
     })
   }
@@ -83,29 +87,46 @@ class App extends Component {
       })
    .catch(error => this.setState({error}))
   }
+  addFolder(folder) {
+    this.setState({
+      folders:[...this.state.folders, folder]
+    })
+  }
+
+  addNote(note) {
+    console.log(this.state.notes);
+    this.setState({
+      notes:[...this.state.notes,note]
+    })
+  }
   
   render(){
-    console.log(this.props.history);
+
+    // console.log(this.props.history);
     const contextValue = {
       folders:this.state.folders,
       notes:this.state.notes,
-      deleteNote:this.deleteNote
+      deleteNote:this.deleteNote,
+      addFolder:this.addFolder,
+      addNote:this.addNote
     }
-    return (
-        <div className="App">
-          <div className="header">
-            <Header/>
-          </div>
-            <div className="main"> 
-              <NotefulContext.Provider value={contextValue} >
-                <Route exact key= '/folder/:folderId' path='/folder/:folderId' 
-                    component={NoteListNav}/>
-                <Route exact path ='/' component={Main}/>
-                <Route exact key= '/note/:noteId' path='/note/:noteId' component={NoteListMain} />
-              </NotefulContext.Provider>
-             </div> 
-        </div>
-    );
+    // console.log(contextValue);
+    return(
+      
+      <div className="App">
+        <NotefulContext.Provider value={contextValue}>
+        <Route exact key= '/folder/:folderId' path='/folder/:folderId' 
+                component={NoteListNav}/>
+        <Route exact path ='/' component={Main}/>
+        <Route exact key= '/note/:noteId' path='/note/:noteId' component={NoteListMain} />
+        <Route exact path = '/addFolder' component={Addfolder}/>
+        <Route exact path='/addNote' component={Addnote}/>
+
+        </NotefulContext.Provider>
+
+      </div>
+      
+    )
   }
 }
 

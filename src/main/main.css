@@ -13,3 +13,8 @@
 .add_note{
     margin:30px;    
 }
+
+.container {
+    display:flex;
+    align-items: center;
+}

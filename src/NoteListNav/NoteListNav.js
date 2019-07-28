@@ -10,9 +10,25 @@ import {Link} from 'react-router-dom';
 export default class NoteListNav extends Component {
     static contextType = NotefulContext;
     render(){
-        console.log(this.props);
+        
+        let newFolders = this.context.folders;
         const folderId = this.props.match.params.folderId;
-        const filterNotes = this.context.notes.length?this.state.notes.filter(note => 
+        console.log(folderId);
+        if (newFolders.length !==0 && newFolders.find(Folder=> Folder.id)!==folderId)
+           
+        {
+            console.log('it ran');
+            console.log(newFolders[0].id)
+          return ( <div className="note">
+                    <div>Bad folder ID</div>
+                    <div className="button">
+                    <Link to ="/"> <button id="returnbtn">Return</button> </Link>
+                    </div> 
+                    </div> )
+        }
+                   
+      
+        const filterNotes = this.context.notes.length>0?this.context.notes.filter(note => 
             note.folderId ===folderId):"";
         const finalNotes= this.context.notes.length?filterNotes.map(note=> {
             return(
@@ -39,7 +55,10 @@ export default class NoteListNav extends Component {
                         <button className="add_note">
                             Add notes
                         </button>
-                    </div>   
+                    </div>  
+                    <div className="button">
+                        <Link to ="/"> <button id="returnbtn">Return</button> </Link>
+                    </div>    
                 </section>
             </>
 

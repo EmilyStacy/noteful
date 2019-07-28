@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import Note from '../Components/Note';
 import NotefulContext from '../notefulContext';
+import {Link} from 'react-router-dom';
+import './Notes.css';
 
 
 class Notes extends Component {
@@ -13,16 +15,18 @@ class Notes extends Component {
                  )
         });
         return (
-        <>
+        <div className="container">
             <div className="Notes">
                 {noteList}
             </div>
             <div className="button">
+                <Link to = 'addNote'>
                 <button className="add_note">
                 Add notes
                 </button>
+                </Link>
             </div>
-        </>
+        </div>
         )
     }
 }

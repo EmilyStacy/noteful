@@ -6,8 +6,7 @@ export default function Folder(props){
     return (
     <div className ={`folder ${props.folder.id}`}>
         <Link to={`/folder/${props.folder.id}`}>
-        
-            <p className={props.selectedFolder?"highlightedFolder":""}>{ props.folder.name}</p>
+            <p className={`${props.selectedFolder?'highlightedFolder':''}`}>{ props.folder.name}</p>
         </Link>
         
     
