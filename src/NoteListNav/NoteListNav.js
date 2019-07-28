@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import Folders from '../Components/Folders';
 // import Store from '../dummy_store';
 import NotefulContext from '../notefulContext';
+import Badfolder from '../Components/Badfolder';
 import {Link} from 'react-router-dom';
 
 
@@ -19,15 +20,8 @@ export default class NoteListNav extends Component {
         {
             console.log('it ran');
             console.log(newFolders[0].id)
-          return ( <div className="note">
-                    <div>Bad folder ID</div>
-                    <div className="button">
-                    <Link to ="/"> <button id="returnbtn">Return</button> </Link>
-                    </div> 
-                    </div> )
+          return ( <Badfolder/>)
         }
-                   
-      
         const filterNotes = this.context.notes.length>0?this.context.notes.filter(note => 
             note.folderId ===folderId):"";
         const finalNotes= this.context.notes.length?filterNotes.map(note=> {

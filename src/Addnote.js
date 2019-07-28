@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import config from './config';
 import NotefulContext from './notefulContext';
 import PropTypes from 'prop-types';
+import Header from './Components/Header';
 const Required = () => (
     <span className='Addfolder__required'>*</span>
   ) ;
@@ -67,6 +68,7 @@ export default class Addnote extends Component {
         //folder is not showing notes
         return(
             <div className="Addnotes">
+                <Header/>
                 <h2>Add a note</h2>
                 {error}
                 <form className = "addnote_form" onSubmit={this.handleSubmit}>

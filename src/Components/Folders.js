@@ -13,6 +13,7 @@ class Folders extends Component {
             <Folder key={folder.id} selectedFolder={selectedFolder} folder = {folder}/>
             )
         })
+                
         return(
             <NotefulContext.Consumer>{context =>(
             <div className="container"> 

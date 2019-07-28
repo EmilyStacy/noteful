@@ -10,6 +10,7 @@ import config from './config';
 import NotefulContext from './notefulContext';
 import Addfolder from './Addfolder';
 import Addnote from './Addnote';
+import Badfolder from './Components/Badfolder';
 
 
 class App extends Component {
@@ -115,10 +116,11 @@ class App extends Component {
       
       <div className="App">
         <NotefulContext.Provider value={contextValue}>
-        <Route exact key= '/folder/:folderId' path='/folder/:folderId' 
+        <Route key= '/folder/:folderId' exact path='/folder/:folderId' 
                 component={NoteListNav}/>
         <Route exact path ='/' component={Main}/>
-        <Route exact key= '/note/:noteId' path='/note/:noteId' component={NoteListMain} />
+        <Route exact path ='/folder' component={Badfolder}/>
+        <Route key= '/note/:noteId' exact path='/note/:noteId' component={NoteListMain} />
         <Route exact path = '/addFolder' component={Addfolder}/>
         <Route exact path='/addNote' component={Addnote}/>
 
@@ -129,5 +131,6 @@ class App extends Component {
     )
   }
 }
+
 
 export default withRouter(App);
