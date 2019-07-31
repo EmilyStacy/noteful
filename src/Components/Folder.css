@@ -7,3 +7,13 @@
 a:link {
     text-decoration: none;
   }
+
+  
+ @media (max-width:476px){
+    .btn btn-secondary btn-sm{
+        font-size:12px;
+        padding:1%;
+        text-align:left;
+        vertical-align:baseline;
+    }
+ }

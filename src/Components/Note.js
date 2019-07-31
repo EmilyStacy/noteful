@@ -8,15 +8,18 @@ class Note extends Component{
     return (
         <NotefulContext.Consumer>
         {(context)=>(
-            <div className="note">
-                <Link to={`/note/${this.props.note.id}`}>
-                <h2>{this.props.note.name}</h2>
-                </Link>
-                <p>{this.props.note.modified}</p>
-                <button className="delete" onClick={()=>{context.deleteNote(this.props.note.id)}}>
-                Delete note
-                </button>
-
+            <div className="col-sm-12 text-center ">
+                <div className="card padding margin">
+                            <div className="card-body">
+                        <Link to={`/note/${this.props.note.id}`}>
+                        <h2 className="card-title">{this.props.note.name}</h2>
+                        </Link>
+                        <p className="card-text">{this.props.note.modified}</p>
+                        <button className="delete" onClick={()=>{context.deleteNote(this.props.note.id)}}>
+                        Delete note
+                        </button>
+                    </div>
+                </div>
             </div>
         )
             }

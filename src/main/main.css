@@ -1,20 +1,11 @@
 
-
-.left {
-    display:inline-block;
-    margin:30px;
+body {
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+    
 }
 
-.right{
-    display:inline-block;
-    margin:30px;
-}
-
-.add_note{
-    margin:30px;    
-}
-
-.container {
-    display:flex;
-    align-items: center;
+#noteList {
+    vertical-align: top;
 }

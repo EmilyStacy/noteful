@@ -6,7 +6,10 @@
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.2",
     "D": "^1.0.0",
+    "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -22,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve":"serve -s build",
+    "serve": "serve -s build",
     "preserve": "npm run build"
   },
   "eslintConfig": {

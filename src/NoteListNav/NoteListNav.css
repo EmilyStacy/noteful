@@ -27,6 +27,7 @@
 }
 
 .button{
+    border:1px solid grey;
     margin:30px;
     padding:15px;
 }

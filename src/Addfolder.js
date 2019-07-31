@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import NotefulContext from './notefulContext';
 import config from './config';
 import PropTypes from 'prop-types';
-
+import Header from './Components/Header';
 const Required = () => (
     <span className='Addfolder__required'>*</span>
   )
@@ -51,15 +51,20 @@ const Required = () => (
         const error = this.state.error? <div className="error">{this.state.error}</div>: " ";
        
         return (
-            <div className="Addfolder">
-                <h2>Add Folder</h2>
+            <div className="container my-3">
+            <Header/>
+                <h2 className="text-center page-header my-3">Add Folder</h2>
                 {error}
                 <form className = "addfolder_form" onSubmit={this.handleSubmit}>
+                <div className="form-group my-3">
                 <label htmlFor ="title">Title:{''} <Required /></label> 
                 <input type="text" name="title" id="title" placeholder="Title"/>
-                <div className = "addfolder_buttons">
-                    <button onClick={this.handleClickCancel}>Cancel</button>
-                    <button type="submit">Save</button>
+                </div>
+                <div className = "addfolder_buttons container-fluid">
+                    <div className="py-1 my3">
+                    <button className="btn btn-secondary btn-sm mx-1" onClick={this.handleClickCancel}>Cancel</button>
+                    <button  className="btn btn-secondary btn-sm mx-1" type="submit">Save</button>
+                    </div>
                 </div>
                 </form>
 

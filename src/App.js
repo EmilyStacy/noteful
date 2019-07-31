@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Route, withRouter} from 'react-router-dom';
+import {Route, withRouter, Switch} from 'react-router-dom';
 // import '@fortawesome/fontawesome-free-webfonts/fontawesome.css'
 //React,{Component} = React.Component 
 import './App.css';
@@ -116,14 +116,16 @@ class App extends Component {
       
       <div className="App">
         <NotefulContext.Provider value={contextValue}>
-        <Route key= '/folder/:folderId' exact path='/folder/:folderId' 
+        <Switch>
+        <Route exact path='/folder/:folderId' 
                 component={NoteListNav}/>
         <Route exact path ='/' component={Main}/>
-        <Route exact path ='/folder' component={Badfolder}/>
-        <Route key= '/note/:noteId' exact path='/note/:noteId' component={NoteListMain} />
+        {/* <Route exact path ='/folder' component={Badfolder}/> */}
+        <Route exact path='/note/:noteId' component={NoteListMain} />
         <Route exact path = '/addFolder' component={Addfolder}/>
         <Route exact path='/addNote' component={Addnote}/>
-
+        <Route component = {Badfolder}/>
+        </Switch>
         </NotefulContext.Provider>
 
       </div>

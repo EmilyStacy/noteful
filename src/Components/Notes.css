@@ -1,4 +1,4 @@
-.add_note{
+/* .add_note{
     text-align: center;
     
 }
@@ -7,4 +7,12 @@
     padding:15px;
     float:right;
     
-}
+} */
+
+.padding{
+    padding:5%;
+   }
+   
+   .margin {
+       margin:5%;
+   }

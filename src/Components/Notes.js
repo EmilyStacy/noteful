@@ -15,17 +15,18 @@ class Notes extends Component {
                  )
         });
         return (
-        <div className="container">
-            <div className="Notes">
-                {noteList}
-            </div>
-            <div className="button">
+        <div>
+            <div className="col-sm-12 padding margin">
                 <Link to = 'addNote'>
-                <button className="add_note">
+                <button className="btn btn-primary">
                 Add notes
                 </button>
                 </Link>
             </div>
+            <div className="row">
+                {noteList}
+            </div>
+            
         </div>
         )
     }

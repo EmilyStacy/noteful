@@ -16,16 +16,20 @@ class Folders extends Component {
                 
         return(
             <NotefulContext.Consumer>{context =>(
-            <div className="container"> 
-            <div className="folder_list">
+            <>
+            <div>
+                
                {folderList}
-            <Link to = '../addFolder'>
-              <button className="add_folder">   
-            Add folder
-            </button>
-            </Link>
             </div>
+            <div>
+             <Link to = '../addFolder'>
+                <button className="btn btn-secondary btn-sm">   
+                Add folder
+                </button>
+                </Link>
+
             </div>
+            </>
             )
             
         }</NotefulContext.Consumer>

@@ -60,27 +60,40 @@ export default class Addnote extends Component {
       }else {
         folderOption = returnFolders.length?returnFolders.map(folder=> {
           return(
-          <option value={folder.id}>{folder.name}</option>
+          <option key={folder.id} value={folder.id}>{folder.name}</option>
           )}): " ";
       }
         const error = this.state.error? <div className="error">{this.state.error}</div>: " ";
         
         //folder is not showing notes
         return(
-            <div className="Addnotes">
+            <div className="container my-3">
                 <Header/>
-                <h2>Add a note</h2>
+                <h2 className="text-center page-header my-3">Add a note</h2>
                 {error}
                 <form className = "addnote_form" onSubmit={this.handleSubmit}>
+                <div className="form-group my-3">
                     <label htmlFor ="name">Name:{''} <Required /></label> 
                     <input type="text" name="name" id="name" placeholder="name" required/>
-                    <select name="folderID">
+                    </div>
+                    <div className="form-group my-3">
+                    <label htmlFor="chooseFolder">Choose a folder: <Required /></label>
+                    <select className="custom-select mr-sm-1" id="folderID">
                     {folderOption}
                     </select>
+                    </div>
+                    <div className="input-group my-3">
                     <label htmlFor ="content">Content:{''} <Required /></label> 
-                    <input type="text" name="content" id="content" placeholder="Type in the content here" required/>
-                    <button onClick={this.handleClickCancel}>Cancel</button>
-                    <button type="submit">Save</button>
+                    <div className="input-group-prepend my-3">
+                    <textarea className="form-control col-12" aria-label="With textarea"></textarea>
+                    </div>
+                    </div>
+                    <div className="container-fluid">
+                    <div className="py-1 my-3">
+                    <button className="btn btn-secondary mx-1" onClick={this.handleClickCancel}>Cancel</button>
+                    <button  className="btn btn-secondary mx-1" type="submit">Save</button>
+                    </div>
+                    </div>
                     
                 </form>
             

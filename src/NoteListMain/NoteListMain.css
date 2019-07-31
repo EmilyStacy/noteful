@@ -1,4 +1,4 @@
-.NoteListMain{
+/* .NoteListMain{
     display:flex;
     justify-content: space-between;
 }
@@ -11,7 +11,7 @@
 .right{
     width:80%;
     display:inline-block;
-}
+} */
 
 #returnbtn {
     float:right;

@@ -4,6 +4,7 @@ import NotefulContext from '../notefulContext';
 import Notes from '../Components/Notes';
 import Folders from '../Components/Folders';
 import Header from '../Components/Header';
+import ErrorBoundary from '../ErrorBoundary';
 
 class Main extends Component {
     static contextType = NotefulContext;
@@ -12,12 +13,16 @@ class Main extends Component {
             
              <div className="container">
             <Header/>
-             <section className="left">
+            <div className="row">
+            <ErrorBoundary>
+             <section className="col-3">
                  <Folders stores={this.context.folders} /> 
             </section>
-            <section className="right">
+            </ErrorBoundary>
+            <section className="col-9" id="noteList">
                 <Notes stores={this.context.notes}/>
             </section>
+            </div>
             </div>
             )
            
