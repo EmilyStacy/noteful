@@ -41,7 +41,7 @@ export default class NoteListNav extends Component {
         return(
             <div className="container-fluid">
                 <Header/>
-                <div class="row ">
+                <div className="row ">
                 <section className="my-3 py-3">
                     <Folders folderId={folderId} stores={this.context.folders}/>
                 </section>

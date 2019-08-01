@@ -15,7 +15,7 @@ class Note extends Component{
                         <h2 className="card-title">{this.props.note.name}</h2>
                         </Link>
                         <p className="card-text">{this.props.note.modified}</p>
-                        <button className="delete" onClick={()=>{context.deleteNote(this.props.note.id)}}>
+                        <button className="delete btn btn-dark" onClick={()=>{context.deleteNote(this.props.note.id)}}>
                         Delete note
                         </button>
                     </div>

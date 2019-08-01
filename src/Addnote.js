@@ -24,7 +24,6 @@ export default class Addnote extends Component {
               folderId: folderID.value,
               content:content.value
           }
-          console.log(newNote);
           this.setState({error:null});
           const options = {
             headers:{'Content-Type': 'application/json'},
@@ -74,18 +73,18 @@ export default class Addnote extends Component {
                 <form className = "addnote_form" onSubmit={this.handleSubmit}>
                 <div className="form-group my-3">
                     <label htmlFor ="name">Name:{''} <Required /></label> 
-                    <input type="text" name="name" id="name" placeholder="name" required/>
+                    <input aria-label = "name" aria-required="true" aria-describedby="nameAnote" type="text" name="name" id="name" placeholder="name" required/>
                     </div>
                     <div className="form-group my-3">
                     <label htmlFor="chooseFolder">Choose a folder: <Required /></label>
-                    <select className="custom-select mr-sm-1" id="folderID">
+                    <select  aria-required="true" className="custom-select mr-sm-1" id="folderID">
                     {folderOption}
                     </select>
                     </div>
                     <div className="input-group my-3">
                     <label htmlFor ="content">Content:{''} <Required /></label> 
                     <div className="input-group-prepend my-3">
-                    <textarea className="form-control col-12" aria-label="With textarea"></textarea>
+                    <textarea className="form-control col-12" aria-required="true" aria-label="With textarea" required id="content"></textarea>
                     </div>
                     </div>
                     <div className="container-fluid">

@@ -58,7 +58,7 @@ const Required = () => (
                 <form className = "addfolder_form" onSubmit={this.handleSubmit}>
                 <div className="form-group my-3">
                 <label htmlFor ="title">Title:{''} <Required /></label> 
-                <input type="text" name="title" id="title" placeholder="Title"/>
+                <input aria-label = "title" aria-required="true" aria-describedby="putAtitle" type="text" name="title" id="title" placeholder="Title" required/>
                 </div>
                 <div className = "addfolder_buttons container-fluid">
                     <div className="py-1 my3">

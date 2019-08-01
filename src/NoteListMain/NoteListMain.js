@@ -3,27 +3,29 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import './NoteListMain.css';
 import NotefulContext from '../notefulContext';
+import ErrorBoundary from '../ErrorBoundary';
 
 export default class NoteListMain extends Component {
     static contextType = NotefulContext;
     render(){
         const noteId = this.props.match.params.noteId;
         const noteItem = this.context.notes.filter(note => 
-            note.id ===noteId); 
+            note.id ===noteId   ); 
         const Items = noteItem.map(note=> {
             return(
                 <NotefulContext.Consumer>
                 {(context)=> (
+                <ErrorBoundary>
                 <div className="notelistMain" key="note.id">
                 <h2>{note.name}</h2>
                 <p>{note.modified}</p>
                 <p>{note.folderId}</p>
-                 <button className="delete" onClick={()=>{context.deleteNote(note.id)}}>
-                Delete note
-
-                </button> 
                 <p>{note.content} </p>
+                <button className="delete btn btn-dark text-center py-2 my-3 mx-3" onClick={()=>{context.deleteNote(note.id)}}>
+                Delete note
+                </button> 
                 </div>
+                </ErrorBoundary>
                 )
             }
                </NotefulContext.Consumer>
@@ -32,7 +34,6 @@ export default class NoteListMain extends Component {
         
         )
         
-        console.log(noteItem[0]);
         const currentNoteFolder = noteItem.length?noteItem[0].folderId:"";
          const folderItem = this.context.folders.filter (folder =>
             folder.id === currentNoteFolder);
@@ -43,7 +44,7 @@ export default class NoteListMain extends Component {
                        <div className="highlighted"> {folderName} </div>
                     </section>
                     <section className="right">
-                    <Link to ="/"> <button id="returnbtn">Return</button> </Link>
+                    <Link to ="/"> <button id="returnbtn" className="btn btn-info py-2 my-2 mx-2">Return</button> </Link>
                         {Items}
                     </section>
                 </>
