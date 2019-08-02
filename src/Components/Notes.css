@@ -16,3 +16,9 @@
    .margin {
        margin:5%;
    }
+
+   .btn-primary {
+    color: #ffffff;
+    background-color: #004794;
+    /* border-color: #007bff; */
+}

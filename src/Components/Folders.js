@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Folder from './Folder';
+import './Folders.css'
 import NotefulContext from '../notefulContext';
 import {Link} from 'react-router-dom';
 
