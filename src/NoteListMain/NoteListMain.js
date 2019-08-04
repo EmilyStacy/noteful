@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import './NoteListMain.css';
 import NotefulContext from '../notefulContext';
 import ErrorBoundary from '../ErrorBoundary';
+import Folders from '../Components/Folders';
 
 export default class NoteListMain extends Component {
     static contextType = NotefulContext;
@@ -22,7 +23,7 @@ export default class NoteListMain extends Component {
                 <p>{note.folderId}</p>
                 <p>{note.content} </p>
                 <button className="delete btn btn-dark text-center py-2 my-3 mx-3" onClick={()=>{context.deleteNote(note.id)}}>
-                Delete note
+                Delete note 
                 </button> 
                 </div>
                 </ErrorBoundary>
@@ -51,3 +52,4 @@ export default class NoteListMain extends Component {
         )
     }
 }
+

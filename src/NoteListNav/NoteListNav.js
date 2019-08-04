@@ -4,13 +4,10 @@ import Folders from '../Components/Folders';
 import NotefulContext from '../notefulContext';
 import {Link} from 'react-router-dom';
 import Header from '../Components/Header';
-
-
-
+import PropTypes from 'prop-types';
 export default class NoteListNav extends Component {
     static contextType = NotefulContext;
     render(){
-        
         // let newFolders = this.context.folders;
        
         // console.log(folderId);
@@ -26,26 +23,32 @@ export default class NoteListNav extends Component {
             note.folderId ===folderId):"";
         const finalNotes= this.context.notes.length?filterNotes.map(note=> {
             return(
+            <NotefulContext.Consumer key={note.id}>
+            {(context)=> (
             <div className="card">
                 <Link to={`/note/${note.id}`}>
                 <h2 className="card-title px-3 py-3 my-3 mx-3">{note.name}</h2></Link>
                 <p className="card-text px-3">{note.modified}</p>
                 <div>
-                <button className="btn btn-dark my-3">
+                <button className="btn btn-dark my-3" onClick={()=>{context.deleteNote(note.id)}}>
                     Delete note
                 </button>
                 </div>
             </div>
             )
+            }
+            </NotefulContext.Consumer>
+            )
         }): "";
         return(
+            
             <div className="container-fluid">
                 <Header/>
                 <div className="row ">
-                <section className="my-3 py-3">
+                <section className="my-2 py-2 col-3">
                     <Folders folderId={folderId} stores={this.context.folders}/>
                 </section>
-                <section className="my-5 py-5 text-center">
+                <section className="my-5 py-3 text-center col-6">
                 <div className="px-1 py-1 mx-3  my-3 btn btn-primary ">
                         <Link to ="/"> <button id="returnbtn">Return</button> </Link>
                     </div>
@@ -60,11 +63,16 @@ export default class NoteListNav extends Component {
                 </section>
                 </div>
             </div>
-
+           
             )
            
         }
         
     
 
+}
+
+Folders.propTypes = {
+    folderID:PropTypes.object,
+    stores:PropTypes.array
 }

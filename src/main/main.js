@@ -5,6 +5,7 @@ import Notes from '../Components/Notes';
 import Folders from '../Components/Folders';
 import Header from '../Components/Header';
 import ErrorBoundary from '../ErrorBoundary';
+import PropTypes from 'prop-types';
 
 class Main extends Component {
     static contextType = NotefulContext;
@@ -33,3 +34,11 @@ class Main extends Component {
 }
 
 export default Main;
+Folders.propTypes = {
+    folderID:PropTypes.object,
+    stores:PropTypes.array
+}
+
+Notes.propTYpes = {
+    stores: PropTypes.array
+}

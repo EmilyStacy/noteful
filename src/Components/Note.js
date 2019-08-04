@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom';
 import NotefulContext from '../notefulContext';
 
 class Note extends Component{
-    
     render(){
-    return (
+        return (
         <NotefulContext.Consumer>
         {(context)=>(
             <div className="col-sm-12 text-center ">
@@ -14,7 +13,7 @@ class Note extends Component{
                         <Link to={`/note/${this.props.note.id}`}>
                         <h2 className="card-title">{this.props.note.name}</h2>
                         </Link>
-                        <p className="card-text">{this.props.note.modified}</p>
+                        <p className="card-text">{this.props.note.modified.substring(0, 10)}</p>
                         <button className="delete btn btn-dark" onClick={()=>{context.deleteNote(this.props.note.id)}}>
                         Delete note
                         </button>

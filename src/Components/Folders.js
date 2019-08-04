@@ -3,7 +3,7 @@ import Folder from './Folder';
 import './Folders.css'
 import NotefulContext from '../notefulContext';
 import {Link} from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 class Folders extends Component {
     static contextType = NotefulContext;
     
@@ -40,3 +40,13 @@ class Folders extends Component {
 }
 
 export default Folders;
+
+Folder.propTypes = {
+    selectedFolder:PropTypes.bool,
+    folder: PropTypes.exact(
+        {
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired
+    }
+    )
+}

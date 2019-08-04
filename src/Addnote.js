@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import config from './config';
 import NotefulContext from './notefulContext';
-import PropTypes from 'prop-types';
 import Header from './Components/Header';
 const Required = () => (
     <span className='Addfolder__required'>*</span>
@@ -19,10 +18,13 @@ export default class Addnote extends Component {
       handleSubmit = e => {
           e.preventDefault();
           const {name, folderID, content} = e.target;
+          const date = new Date();
+          const dateIso = date.toISOString();
           const newNote = {
               name: name.value,
               folderId: folderID.value,
-              content:content.value
+              content:content.value,
+              modified: dateIso
           }
           this.setState({error:null});
           const options = {
@@ -102,12 +104,3 @@ export default class Addnote extends Component {
     
 }   
 
-Addnote.propTypes = {
-  name: PropTypes.string.isRequired,
-  content:PropTypes.string.isRequired
-}
-
-Addnote.defaultProps={
-  name: 'myNote',
-  content: 'text'
-}
